@@ -2,6 +2,10 @@
 
 A flexible and modular Python toolkit for Electronic Health Record (EHR) data preprocessing, filtering, PCA analysis, and machine learning (LightGBM & XGBoost) modeling.
 
+Group Members:  Allen Gao, Bo Yang, Max Freitas
+
+Last Updated: 4/16/25
+
 ---
 
 ## 📦 Features
@@ -18,14 +22,34 @@ A flexible and modular Python toolkit for Electronic Health Record (EHR) data pr
 
 ---
 
-## 📁 Standardized Input Format
+## 📁 1. Standardized Input Format (Max Will Work on This)
 
-- Categorical variables must be **prefixed with `cat__`**, e.g., `cat__gender`.
-- NaNs are recognized as either `NaN` or `"?"`.
+- To standarize the inputed dataset and prepare for filtering and selection
+- Column names will be renamed based on their type
+  - For Example, Categorical variables will be **prefixed with `cat__`
+- Missing value format will be standarized to either `"NA"` or `"?"`
+
+
+```python
+EHR_standardize(dataset, na_format="NaN", format="csv")
+```
+
+**Parameters**
+- `dataset`: (str) Input Dataset
+- `na_format`: (str) Format for outputted missing values
+  - `"NaN"`
+  - `"?"`
+- `format`: (str) Format of input file (csv, tsv, excel, etc)
+
+
+**Example**
+```python
+standarized_df=EHR_standardize(dataset=input_file, na_format="?", format="csv")
+```
 
 ---
 
-## 🔧 1. Data Preprocessing
+## 🔧 2. Data Preprocessing (Max Will Work on This)
 
 ```python
 EHR_preprocessing(dataset, remove = True, impute = False)
@@ -41,11 +65,11 @@ EHR_preprocessing(dataset, remove = True, impute = False)
 
 **Example**  
 ```python
-cleaned_df = HER_preprocessing(raw_df, remove=False, impute="mean")
+cleaned_df = EHR_preprocessing(raw_df, remove=False, impute="mean")
 ```
 
 
-## 🔍 2. Filtering and Selection
+## 🔍 3. Filtering and Selection (Max Will Work on This)
 
 ### Filter and select specific variables
 ```python
@@ -60,7 +84,7 @@ selected_df = Demo_select(['age','race','diabetes'])
 ```
 
 
-### Filter by range
+### Filter by range (Allen Will Work on This)
 ```python
 Demo_range(variable, range)
 ```
@@ -78,7 +102,7 @@ filtered_df = Demo_range("race","white hispano") # get those race are white or h
 
 
 
-## 🔬 3. PCA Analysis
+## 🔬 4. PCA Analysis (Allen Will Work on This)
 ```python
 EHR_PCA(dataset, num = 20, plot = True) -> list
 ```
@@ -96,7 +120,7 @@ principal_components = EHR_PCA(df, 20, 0)
 ```
 
 
-## 🌲 4. LightGBM Modeling
+## 🌲 5. LightGBM Modeling (Bo Will Work on This)
 ```python
 EHR_LGBM(dataset, y_variable, plot = True, hyperparameters = None) -> dict
 ```
@@ -123,7 +147,7 @@ return {'model': trained_model,
 ```
 
 
-## 🚀 5. XGBoost Modeling
+## 🚀 5. XGBoost Modeling (Bo Will Work on This)
 
 ```python
 EHR_XGB(dataset, y_variable, hyperparameters=None, plot=True)
