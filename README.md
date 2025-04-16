@@ -147,7 +147,7 @@ return {'model': trained_model,
 ```
 
 
-## 🚀 5. XGBoost Modeling (Bo Will Work on This)
+## 🚀 6. XGBoost Modeling (Bo Will Work on This)
 
 ```python
 EHR_XGB(dataset, y_variable, hyperparameters=None, plot=True)
