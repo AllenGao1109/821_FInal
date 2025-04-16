@@ -26,7 +26,7 @@ Last Updated: 4/16/25
 
 - To standarize the inputed dataset and prepare for filtering and selection
 - Column names will be renamed based on their type
-  - For Example, Categorical variables will be **prefixed with `cat__`
+  - For Example, Categorical variables will be prefixed with `cat__`
 - Missing value format will be standarized to either `"NA"` or `"?"`
 
 
@@ -44,7 +44,7 @@ EHR_standardize(dataset, na_format="NaN", format="csv")
 
 **Example**
 ```python
-standarized_df=EHR_standardize(dataset=input_file, na_format="?", format="csv")
+standardized_df=EHR_standardize(dataset=input_file, na_format="?", format="csv")
 ```
 
 ---
