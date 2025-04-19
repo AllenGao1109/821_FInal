@@ -4,13 +4,13 @@ A flexible and modular Python toolkit for Electronic Health Record (EHR) data pr
 
 Group Members:  Allen Gao, Bo Yang, Max Freitas
 
-Last Updated: 4/16/25
+Last Updated: 4/19/25
 
 ---
 
 ## 📦 Features
 
-- ✅ Categorical variable support (prefix `cat__`)
+- ✅ Categorical variable support
 - ✅ NaN handling (remove or impute)
 - ✅ Flexible filtering and selection
 - ✅ Range-based subgroup selection
@@ -21,6 +21,10 @@ Last Updated: 4/16/25
 - ✅ Output visualization
 
 ---
+
+## Allen was responsible for the design and definition of core functions, drafting the main content of the README, and implementing the PCA module. Max handled data preprocessing and contributed to refining parts of the README. Bo worked on the design and implementation of the LightGBM and XGBoost models. Finally, Allen took charge of code review and packaging.
+
+
 
 ## 📁 1. Standardized Input Format (Max Will Work on This)
 
@@ -61,7 +65,6 @@ EHR_preprocessing(dataset, remove = True, impute = False) -> dataset
   - `"mean"`: Fill with column mean  
   - `"largest"`: Fill with column max  
   - `"smallest"`: Fill with column min  
-  - `"knn5"`: Fill using KNN (k=5)  
 
 **Example**  
 ```python
@@ -73,29 +76,29 @@ cleaned_df = EHR_preprocessing(raw_df, remove=False, impute="mean")
 
 ### Filter and select specific variables
 ```python
-Demo_filter(dataframe, variablelist) -> dataset
-Demo_select(dataframe, variablelist) -> dataset
+EHR_filter_cols(dataframe, variablelist) -> dataset
+EHR_select_cols(dataframe, variablelist) -> dataset
 ```
 
 **Example**  
 ```python
-filtered_df = Demo_filter(data, ['age','race','diabetes']) 
-selected_df = Demo_select(data, ['age','race','diabetes']) 
+filtered_df = EHR_filter_cols(data, ['age','race','diabetes']) 
+selected_df = EHR_select_cols(data, ['age','race','diabetes']) 
 ```
 
 
-### Filter by range (Allen Will Work on This)
+### Filter by range (Max Will Work on This)
 ```python
-Demo_range(dataset, variable, range) -> dataset
+EHR_select_values(dataset, variable, range) -> dataset
 ```
 
 **Example**
 ```
 # continuous variables
-filtered_df = Demo_range(data, "age", "40,60")    # get those age range from 40 - 60, 60 is not included
+filtered_df = EHR_select_values(data, "age", "40,60")    # get those age range from 40 - 60, 60 is not included
 
 # categorical variables
-filtered_df = Demo_range(data, "race","white hispano") # get those race are white or hispano
+filtered_df = EHR_select_values(data, "race","white hispano") # get those race are white or hispano
 ```
 - `numeric values`: use , to split the interval
 - `categories`: provide space-separated string of desired levels
@@ -104,7 +107,7 @@ filtered_df = Demo_range(data, "race","white hispano") # get those race are whit
 
 ## 🔬 4. PCA Analysis (Allen Will Work on This)
 ```python
-EHR_PCA(dataset, num = 20, plot = True) -> list
+EHR_PCA(dataset, num = 10, plot = True) -> list
 ```
 **Parameters**  
 - `num`: number of principal components to retain
