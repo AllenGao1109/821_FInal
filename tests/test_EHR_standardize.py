@@ -10,7 +10,7 @@ from typing import Any, Union
 import pandas as pd
 import pytest
 
-from EHR_processing_functions import EHR_standardize
+from ehr_utils import EHR_standardize
 
 
 def test_EHR_standarize_basic(tmp_path: Any) -> pd.DataFrame:

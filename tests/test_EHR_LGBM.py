@@ -15,7 +15,7 @@ sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 )
 
-from EHR_LGBM import EHR_LGBM
+from ehr_utils import EHR_LGBM
 
 
 def generate_dummy_dataset(n: int = 100) -> pd.DataFrame:
