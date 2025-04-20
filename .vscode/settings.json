@@ -1,10 +1,11 @@
 {
-    "diffEditor.ignoreTrimWhitespace": false,
-    "[python]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "charliermarsh.ruff",
-    },
-    "editor.rulers": [
-        79
-    ],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "editor.rulers": [79],
+  "python.analysis.extraPaths": ["./src"]
 }
+
+
