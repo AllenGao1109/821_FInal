@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from ehr_utils import EHR_PCA  # Replace with your actual filename
+from ehr_utils import EHR_PCA
 
 
 def test_EHR_PCA_basic() -> None:
