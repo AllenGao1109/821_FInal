@@ -25,6 +25,27 @@ Last Updated: 4/19/25
 ## Allen was responsible for the design and definition of core functions, drafting the main content of the README, and implementing the PCA module. Max handled data preprocessing and contributed to refining parts of the README. Bo worked on the design and implementation of the LightGBM and XGBoost models. Finally, Allen took charge of code review and packaging.
 
 
+## 📦 Requirements
+
+Before running this project, please make sure the following Python packages are installed:
+
+- `numpy`
+- `pandas`
+- `seaborn`
+- `scikit-learn`
+- `matplotlib`
+- `xgboost`
+- `typing` (included in standard library)
+- `re` (built-in module)
+- `collections` (built-in module)
+
+You can install the required packages with the following command:
+
+```bash
+pip install numpy pandas seaborn scikit-learn matplotlib xgboost
+```
+
+
 
 ## 📁 1. Standardized Input Format (Max Will Work on This)
 

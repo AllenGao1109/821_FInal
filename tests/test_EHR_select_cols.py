@@ -7,7 +7,7 @@ Last Updated April 18 2025.
 import pandas as pd
 import pytest
 
-from src.EHR_processing_functions import EHR_select_cols
+from EHR_processing_functions import EHR_select_cols
 
 
 def test_EHR_select_cols_basic() -> None:

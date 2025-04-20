@@ -7,7 +7,7 @@ Last Updated April 18 2025.
 import pandas as pd
 import pytest
 
-from src.EHR_processing_functions import EHR_select_values
+from EHR_processing_functions import EHR_select_values
 
 
 def test_EHR_select_values_missing_column() -> None:
