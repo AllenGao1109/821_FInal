@@ -1,5 +1,6 @@
 [tool.mypy]
 mypy_path = "src"
+python_version = "3.13"
 explicit_package_bases = true
 ignore_missing_imports = true
 namespace_packages = true
@@ -26,4 +27,8 @@ convention = "google"
 [tool.pytest.ini_options]
 pythonpath = [
   "src"
+]
+filterwarnings = [
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning"
 ]

@@ -5,6 +5,7 @@ Including optional hyperparameter tuning and feature importance plotting.
 
 import os
 import sys
+from typing import Any, Optional, Union
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -14,15 +15,16 @@ from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
 from sklearn.model_selection import GridSearchCV, train_test_split
 
 sys.path.append(
-    os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '..', 'src')
-    )
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 )
 
 
-def EHR_LGBM(dataset: pd.DataFrame, y_variable: str,
-             hyperparameters: dict | None = None,
-             plot: bool = True) -> dict:
+def EHR_LGBM(
+    dataset: pd.DataFrame,
+    y_variable: str,
+    hyperparameters: Optional[dict[str, Any]] = None,
+    plot: bool = True,
+) -> dict[str, Union[LGBMClassifier, dict[str, float]]]:
     """Train LightGBM on input dataset and return trained model and metrics.
 
     Args:
@@ -47,13 +49,11 @@ def EHR_LGBM(dataset: pd.DataFrame, y_variable: str,
         param_grid = {
             "n_estimators": [100],
             "learning_rate": [0.1],
-            "num_leaves": [15, 31]
+            "num_leaves": [15, 31],
         }
         grid = GridSearchCV(
-            LGBMClassifier(), 
-            param_grid, 
-            cv=3, 
-            scoring="roc_auc")
+            LGBMClassifier(), param_grid, cv=3, scoring="roc_auc"
+        )
         grid.fit(X_train, y_train)
         model = grid.best_estimator_
     else:
@@ -66,7 +66,7 @@ def EHR_LGBM(dataset: pd.DataFrame, y_variable: str,
     metrics = {
         "accuracy": accuracy_score(y_test, y_pred),
         "auc": roc_auc_score(y_test, y_prob),
-        "f1": f1_score(y_test, y_pred)
+        "f1": f1_score(y_test, y_pred),
     }
 
     if plot:
@@ -80,4 +80,3 @@ def EHR_LGBM(dataset: pd.DataFrame, y_variable: str,
         plt.show()
 
     return {"model": model, "metrics": metrics}
-

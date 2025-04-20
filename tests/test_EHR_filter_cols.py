@@ -9,7 +9,7 @@ import re
 import pandas as pd
 import pytest
 
-from src.EHR_processing_functions import EHR_filter_cols
+from ehr_utils import EHR_filter_cols
 
 
 def test_EHR_filter_cols_basic() -> None:

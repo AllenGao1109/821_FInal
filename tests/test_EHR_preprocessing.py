@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from src.EHR_processing_functions import EHR_preprocessing
+from ehr_utils import EHR_preprocessing
 
 
 def test_EHR_preprocessing_basic_remove() -> None:
